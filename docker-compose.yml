@@ -1,0 +1,12 @@
+version: '2'
+services:
+    # Web development tools
+    tools:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        volumes:
+            - ./:/var/www
+        working_dir: /var/www
+        stdin_open: true
+        tty: true

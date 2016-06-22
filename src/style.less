@@ -1,0 +1,59 @@
+
+@import '../node_modules/bootstrap/less/bootstrap.less';
+
+@color-black: #272A2B;
+@color-green: #0AB396;
+@color-white: #FBFFFF;
+@color-grey: #B8BBDC;
+
+body {
+
+    background-color: @color-black;
+    color: @color-white;
+    padding:
+        @padding-large-vertical
+        @padding-small-horizontal;
+
+    @media (min-width: @screen-md-min) {
+        padding:
+            ceil(@padding-large-vertical * 5)
+            @padding-large-horizontal
+            @padding-large-vertical
+            @padding-large-horizontal;
+    }
+
+    .page {
+        .container();
+        min-height: 100px;
+
+        #content {
+            .make-md-column(6);
+        }
+
+        #references {
+            .make-md-column(6);
+        }
+    }
+
+    header {
+        h1 {
+            .hidden();
+        }
+        a {
+            background-color: transparent;
+            background-image: url(logo.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            text-indent: -1000px;
+            display: block;
+            height: 64px;
+            width: 256px;
+
+            @media (min-width: @screen-md-min) {
+                height: 96px;
+                width: 384px;
+            }
+        }
+    }
+}
