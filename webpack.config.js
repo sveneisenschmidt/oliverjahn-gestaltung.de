@@ -17,14 +17,16 @@ module.exports = {
                 test: /\.less$/,
                 loader: extracttext.extract('css-loader!less-loader')
             },
-            {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-                loader: 'url-loader?limit=100000'
-            }
+            { test: /\.woff(\?.*)?$/, loader: "file-loader" },
+            { test: /\.woff2(\?.*)?$/, loader: "file-loader" },
+            { test: /\.ttf(\?.*)?$/, loader: "file-loader" },
+            { test: /\.eot(\?.*)?$/, loader: "file-loader" },
+            { test: /\.svg(\?.*)?$/, loader: "file-loader" },
+            { test: /\.jpg(\?.*)?$/, loader: "file-loader" },
         ]
     },
     plugins: [
-        new extracttext('bundle.css', { allChunks: false })
-//        ,new webpack.optimize.UglifyJsPlugin()
+        new extracttext('bundle.css', { allChunks: false }),
+        new webpack.optimize.UglifyJsPlugin(),
     ]
 };
