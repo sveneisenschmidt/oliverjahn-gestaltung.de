@@ -14,7 +14,8 @@ jQuery(document).ready(function() {
 jQuery(document).ready(function() {
     jQuery("#references a").on('click', function(event) {
         event.preventDefault();
-        jQuery('#gallery img').attr('src', jQuery(this).attr('href'));
-        jQuery('#gallery').modal('show');
+        jQuery('#gallery img').attr('src', jQuery(this).attr('href')).on('load', function() {
+            jQuery('#gallery').modal('show');
+        });
     });
 });
